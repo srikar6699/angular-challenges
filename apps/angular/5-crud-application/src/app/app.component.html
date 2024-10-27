@@ -1,0 +1,11 @@
+<ng-container *ngIf="!loading;else loader">
+    <div *ngFor="let todo of todos$ | async" style="padding: 5px 10px;">
+      {{todo.id}}: {{ todo.title }}
+      <button (click)="update(todo)">Update</button>
+      <button (click)="delete(todo.id)">Delete</button>
+    </div>
+  </ng-container>
+  <ng-template #loader>
+    <!-- <mat-progress-spinner color="blue" diameter="20"></mat-progress-spinner> -->
+    <p>Loading...</p>
+  </ng-template>
